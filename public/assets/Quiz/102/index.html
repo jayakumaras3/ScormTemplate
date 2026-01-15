@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Dummy Quiz</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Width and Height HTML Page with Iframe</title>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden; /* Prevent scrollbars */
+    }
+    #contentContainer {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<script src="../../../theme/scripts/QuizTemplate/MCQ/script.js"></script>
+<script>
+   var mainData;
+</script>
 </head>
 <body>
-  <h1>Dummy Quiz</h1>
-  <p>This is a placeholder for a quiz.</p>
+    <div id="contentContainer"></div>
 </body>
 </html>

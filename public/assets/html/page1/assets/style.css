@@ -1,0 +1,111 @@
+@font-face {
+  font-family: 'MyriadPro-Bold';
+  src: url('MYRIADPRO-BOLD.OTF') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: url('bg.png') no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  font-family: 'MyriadPro-Bold';
+}
+.btn.start-course {
+    background-image: url('begin.png');
+  }
+
+  .btn.audio-version {
+    background-image: url('audio.png');
+  }
+
+  /* Mouseover effect (on hover) */
+  .btn.start-course:hover {
+    background-image: url('begin-hover.png'); /* Image change on hover */
+  }
+
+  .btn.audio-version:hover {
+    background-image: url('audio-hover.png'); /* Image change on hover */
+  }
+  
+.title {
+  width: 60%;
+  position: fixed;
+  top: 170px;
+  left: 80px;
+  color: #ffffff;
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+.info {
+      position: fixed;
+    top: 413px;
+    left: 80px;
+    display: flex;
+    gap: 14px;
+    font-size: 16px;
+    color: #ffffff;
+}
+.info-time
+{
+	  width: 41px;
+    height: 48px;
+}
+.info-quiz
+{
+	  width: 78px;
+    height: 48px;
+}
+.info-download
+{
+	 width: 53px;
+    height: 48px;
+}
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.buttons {
+  position: fixed;
+  top: 530px;
+  left: 80px;
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.btn img {
+    width: 213px;
+    height: auto;
+}
+
+.btn:focus {
+  
+}
+
+.circle {
+  position: fixed;
+  top: 132px;
+  right: 0px;
+  height: 80%;
+}
+
+.circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
