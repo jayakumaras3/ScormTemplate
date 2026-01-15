@@ -1,0 +1,35 @@
+{
+  "master": true,
+  "lmsStatus": "Passed/Failed",
+  "QuizAttempt": "2",
+  "AudioVersionEnable": true,
+  "CertificateEnabled": true,
+  "PageLevelCourseComplete": false,
+  "LearningAidsTitle": " LearningAidsTitle",
+  "MenuShowHideBool": "true",
+  "Menutitle": "Menu",
+  "NextTitle": " SUIVANT",
+  "Prevtitle": "PRÉC",
+  "MenuName": "Menu",
+  "TranscriptName": "Transcription",
+  "ResumeTitle": "Reprendre",
+  "ResumeHeader": "Êtes-vous sûr de vouloir continuer là où vous vous êtes arrêté ?",
+  "ResumeYES": "Oui",
+  "ResumeNO": "Non",
+  "VttLanguage": "fr",
+  "CourseName": "FR_T33_L1_Fixer des objectifs SM",
+  "VttLabel": "French",
+  "spanCliContinue": "Sélectionnez suivant pour continuer.",
+  "Resource": true,
+  "ResourceArea": {
+    "LearningAids": {
+      "Title": "Troubleshooting",
+      "Resources": [
+        {
+          "Title": "Right and Download the PDF",
+          "URL": "assets/PDF/FR_T33_L1_Fixer des objectifs SM.pdf"
+        }
+      ]
+    }
+  }
+}
