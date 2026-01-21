@@ -1,24 +1,6 @@
-// --------------------------------------------------
-// JSON CONTRACT: template.json
-// --------------------------------------------------
-
-export interface ResourceItem {
-  Title: string;
-  URL: string;
-}
-
-export interface LearningAids {
-  Title: string;
-  Resources: ResourceItem[];
-}
-
-export interface ResourceArea {
-  LearningAids: LearningAids;
-}
-
 export interface TemplateConfig {
   master: boolean;
-  lmsStatus: "Passed/Failed";
+  lmsStatus: string;
   QuizAttempt: string;
   AudioVersionEnable: boolean;
   CertificateEnabled: boolean;
@@ -39,49 +21,52 @@ export interface TemplateConfig {
   VttLabel: string;
   spanCliContinue: string;
   Resource: boolean;
-  ResourceArea: ResourceArea;
+  ResourceArea: {
+    LearningAids: {
+      Title: string;
+      Resources: { Title: string; URL: string }[];
+    };
+  };
 }
 
-// --------------------------------------------------
-// JSON CONTRACT: toc.json
-// --------------------------------------------------
-
-export type ContentType = 'captivate' | 'video';
-
-export interface ContentItem {
-  type: ContentType;
+export interface TocContent {
+  type: "captivate" | "video";
   path: string;
-  functionName?: string; // Specific to "captivate"
-  onendnextscrn?: string;  // Specific to "video"
+  functionName?: string;
+  onendnextscrn?: string;
 }
 
-export interface PreloaderItem {
+export interface TocPreloader {
   src: string;
   id: string;
 }
 
-export interface PageSettings {
+export interface TocSettings {
   sidebar: boolean;
   header: boolean;
   footer: boolean;
   fullScreen: boolean;
   pageNumber: string;
   module: number;
-  preloader: PreloaderItem[];
-  content: ContentItem[];
+  preloader: TocPreloader[];
+  content: TocContent[];
 }
 
-export interface Page {
+export interface TocPage {
   name: string;
   title: string;
   header: string;
   transcript: string;
-  settings: PageSettings;
+  settings: TocSettings;
 }
 
-/**
- * The root structure of toc.json.
- * It is an object where keys are module identifiers (e.g., "0")
- * and values are arrays of Page objects.
- */
-export type Toc = Record<string, Page[]>;
+export type TocData = Record<string, TocPage[]>;
+
+export interface PageState {
+  visited: boolean;
+  completed: boolean;
+  score?: number;
+  attempts?: number;
+  answer?: any;
+  isLocked?: boolean;
+}
