@@ -1,0 +1,103 @@
+{
+  "QuestionRandom": "0",
+  "QuizMode": "PostTest",
+  "PostAttemptType": false,							
+  "TotalQuestions": "8",
+  "OptionRandom": "1",
+											  
+  "passingScore": "80",
+												
+  "QuizAttempt": "100",  																	 
+  "iframeSrc": "../../../theme/scripts/QuizTemplate/Quiz/Quiz.html",										  
+  "duration": "0",
+  "startpagedescrip": "",
+  "resultpagedescrip": "",
+  "TotalQuestionste": "Total number of questions: ",
+  "passingScorete": "Minimum passing score: ",
+  "QuizAttemptte": "Total number of attempts: ",
+  "Resulttitle": "You have completed the assessment!",
+  "Resutscorecontent": "Your score:",
+  "Resutpassed": "Congratulations! You passed the assessment.",
+  "Resutfailed": "You did not pass the assessment. Please click <strong>Retry</strong> to try again.",
+  "FinalResutfailed": "You did not pass the assessment. <br>Please contact your manager for next steps.",
+  "Questiontext": "<i>Select the correct answer(s), and then click <strong>Submit.</strong></i>",
+  "QuestionMcQtext": "<i>Select the correct answer(s), and then click <strong>Submit.</strong></i>",
+  "ImageZoomText": "Click the for Zoom",
+  "durationte": "Time allowed to complete the assessment: ",
+  "startpageheader": "Assessment",			 
+  "startpagedescrip1": "If you fail to achieve the minimum score and you have attempts remaining, please re-attempt the assessment.",
+  "startButton": "Start",
+  "quizButton": "Submit",
+  "MinutesText": "minutes",
+  "retryButton": "Retry",
+  "QuestionCountText": "Questions",
+  "QuestionOFText": "of",
+  "viewResult": "View Result",
+  "clicknote": "Click <strong>Start</strong> to begin.",
+  "TimeUpte": "Oops! Time's up!",
+  "questions": [
+    {
+      "question": "sIdentify the electronic ignition source that ignites the mixture of gas and air in a gasoline engine.",
+      "type": "single",
+      "options": "Fuel injector.|answerSpark plug.|Solenoid.|No electronic ignition source is used.",
+      "correct": "0|1|0|0",
+	  "images": null,
+      "video": null
+    },{
+      "question": "sIdentify the primary shaft that rotates due to the explosions caused by the chemical reaction of the combustible fluid.Identify the primary shaft that rotates due to the explosions caused by the chemical reaction of the combustible fluid.",
+      "type": "single",
+      "options": "CamshaftvvCamsha ftvvCa mshaftvvCamshaftvvCamshaftvvCamsha ftvvCa mshaftvvCamshaftvvCamshaftvvCamsha ftvvCa mshaftvvCamshaftvv|answerCrankshaft Cranksh aftCran kshaftCrankshaft|Crankshaft Cranksh aftCran kshaftCrankshaft|Crankshaft Cranksh aftCran kshaftCrankshaft",
+      "correct": "0|1|0|0",
+      "images": "../../../../assets/Quiz/106/assessment_image/img1.jpg",
+      "video": null
+    },{
+      "question": "sIdentify the primary shaft that rotates due to the explosions caused by the chemical reaction of the combustible fluid.Identify the primary shaft that rotates due to the explosions caused by the chemical reaction of the combustible fluid.",
+      "type": "single",
+      "options": "CamshaftvvCamsha ftvvCa mshaftvvCamshaftvvCamshaftvvCamsha ftvvCa mshaftvvCamshaftvvCamshaftvvCamsha ftvvCa mshaftvvCamshaftvv|answerCrankshaft Cranksh aftCran kshaftCrankshaft|AxleAx leAxle Axl eAxleAxle shaft",
+      "correct": "0|1|0",
+      "images": "../../../../assets/Quiz/106/assessment_image/img2.jpg",
+      "video": null
+    },{
+      "question": "mIdentify the combination that causes the chemical reaction in a diesel powered internal combustion engine.",
+      "type": "multiple",
+      "options": "Air and fuel|answerAir, water, and fuel|answerAir, heat, and fuel|Air, fuel, and spark plug",
+      "correct": "0|1|1|0",
+      "images": "../../../../assets/Quiz/106/assessment_image/img3.jpg",
+      "video": null
+    },
+    {
+      "question": "sWhich of the following items is <strong>NOT</strong> a component of the combustible fluid needed for combustion in a engine?",
+      "type": "single",
+      "options": "Fuel|answerWater|Heat|Oxygen",
+      "correct": "0|1|0|0",
+      "images": null,
+      "video": "../../../../assets/Quiz/106/assessment_video/video1.mp4"
+    },
+    {
+      "question": "mIdentify the electronic ignition source that ignites the mixture of gas and air in a gasoline engine.",
+      "type": "multiple",
+      "options": "Fuel injector.|answerSpark plug.|Solenoid.|No electronic ignition source is used.",
+      "correct": "0|1|0|0",
+      "images": null,
+      "video": null
+    },
+    
+    {
+      "question": "mThe energy produced by the combustion process in a diesel engine is used to rotate the _____________.",
+      "type": "multiple",
+      "options": "answercrankshaft|camshaft|piston|connecting rod",
+      "correct": "1|0|0|0",
+      "images": null,
+      "video": "../../../../assets/Quiz/106/assessment_video/video1.mp4"
+    },
+    
+    {
+      "question": "mThe energy produced by the combustion process in a diesel engine is used to rotate the _____________.",
+      "type": "multiple",
+      "options": "answercrankshaft|camshaft|piston|connecting rod",
+      "correct": "1|0|0|0",
+      "images": null,
+      "video": null
+    }
+  ]
+}
