@@ -1,0 +1,63 @@
+@if (vm$ | async; as vm) {
+  @if (vm.loading) {
+    <app-loading-spinner />
+  } @else if (vm.error) {
+    <section class="error-state">
+      <h2>Unable to load course</h2>
+      <p>{{ vm.error }}</p>
+    </section>
+  } @else {
+    <section class="course-shell">
+      <header class="top-bar">
+        <div class="top-left">
+          <button class="icon-btn" type="button" (click)="toggleMenu()">☰</button>
+          <span class="crumb">{{ vm.currentSectionName }}</span>
+        </div>
+        <h1>{{ vm.config?.template?.CourseName }}</h1>
+        <div class="top-right">
+          <span class="badge">⭐ {{ vm.completion }}</span>
+          <span class="lang">🌐 EN</span>
+        </div>
+      </header>
+
+      <div class="course-stage">
+        @if (vm.menuOpen) {
+          <app-sidebar-menu
+            [pages]="vm.pages"
+            [currentPageIndex]="vm.currentPageIndex"
+            [visitedPageIds]="vm.visitedPageIds"
+            (pageSelected)="selectMenuPage($event)"
+            (closeMenu)="toggleMenu()"
+          />
+        } @else {
+          <app-page-view [page]="vm.page" />
+        }
+      </div>
+
+      <app-navigation-bar
+        [canGoBack]="vm.canGoBack"
+        [canGoNext]="vm.canAdvance"
+        [completionPercentage]="vm.completion"
+        [currentPage]="vm.currentPageIndex + 1"
+        [totalPages]="vm.pages.length"
+        (previous)="goBack()"
+        (next)="goNext()"
+        (openMenu)="toggleMenu()"
+        (openTranscript)="toggleTranscript()"
+        (toggleAudio)="toggleAudio()"
+      />
+
+      <app-transcript-panel
+        [visible]="vm.transcriptOpen"
+        [entries]="vm.transcriptEntries"
+        (close)="toggleTranscript()"
+      />
+
+      <app-resume-dialog
+        [visible]="vm.showResumeDialog"
+        (resume)="resumeCourse()"
+        (restart)="restartCourse()"
+      />
+    </section>
+  }
+}

@@ -1,20 +1,114 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# SCORM Angular 20 Template
 
-# Run and deploy your AI Studio app
+This project is a SCORM-compliant Angular application designed for delivering interactive e-learning courses. It integrates SCORM functionalities to track user progress and manage course content effectively.
 
-This contains everything you need to run your app locally.
+## Project Structure
 
-View your app in AI Studio: https://ai.studio/apps/drive/1wWGLHNjUjEFfWR_GapHew6Ea2YwoCNqp
+The project is organized as follows:
 
-## Run Locally
+```
+scorm-angular20-template
+├── src
+│   ├── app
+│   │   ├── core
+│   │   │   ├── models
+│   │   │   │   └── course.models.ts
+│   │   │   └── services
+│   │   │       ├── course-state.service.ts
+│   │   │       ├── config-loader.service.ts
+│   │   │       ├── progress.service.ts
+│   │   │       └── scorm.service.ts
+│   │   ├── features
+│   │   │   └── course
+│   │   │       ├── components
+│   │   │       │   ├── course-shell
+│   │   │       │   │   ├── course-shell.component.ts
+│   │   │       │   │   ├── course-shell.component.html
+│   │   │       │   │   └── course-shell.component.scss
+│   │   │       │   ├── navigation
+│   │   │       │   │   ├── navigation.component.ts
+│   │   │       │   │   ├── navigation.component.html
+│   │   │       │   │   └── navigation.component.scss
+│   │   │       │   ├── transcript
+│   │   │       │   │   ├── transcript.component.ts
+│   │   │       │   │   ├── transcript.component.html
+│   │   │       │   │   └── transcript.component.scss
+│   │   │       │   └── resume-dialog
+│   │   │       │       ├── resume-dialog.component.ts
+│   │   │       │       ├── resume-dialog.component.html
+│   │   │       │       └── resume-dialog.component.scss
+│   │   │       └── pages
+│   │   │           └── page-host
+│   │   │               ├── page-host.component.ts
+│   │   │               ├── page-host.component.html
+│   │   │               └── page-host.component.scss
+│   │   ├── app.component.ts
+│   │   ├── app.component.html
+│   │   ├── app.component.scss
+│   │   ├── app.config.ts
+│   │   └── app.routes.ts
+│   ├── assets
+│   │   └── json
+│   │       ├── template.json
+│   │       └── toc.json
+│   ├── index.html
+│   ├── main.ts
+│   └── styles.scss
+├── angular.json
+├── package.json
+├── tsconfig.json
+└── README.md
+```
 
-**Prerequisites:**  Node.js
+## Installation
 
+1. Clone the repository:
+   ```
+   git clone <repository-url>
+   ```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+2. Navigate to the project directory:
+   ```
+   cd scorm-angular20-template
+   ```
+
+3. Install the dependencies:
+   ```
+   npm install
+   ```
+
+## Running the Application
+
+To start the development server, run:
+```
+ng serve
+```
+Then open your browser and navigate to `http://localhost:4200`.
+
+## Configuration Files
+
+- **template.json**: Contains the template configuration for the course.
+- **toc.json**: Contains the table of contents for the course.
+
+## Services
+
+- **CourseStateService**: Manages the state of the course, including the current page index and progress tracking.
+- **ConfigLoaderService**: Responsible for loading configuration files and providing necessary data.
+- **ProgressService**: Handles saving and loading user progress in the course using local storage.
+- **ScormService**: Integrates SCORM functionalities, initializing and terminating the SCORM API.
+
+## Components
+
+- **CourseShellComponent**: Main shell for the course layout.
+- **NavigationComponent**: Handles navigation between pages.
+- **TranscriptComponent**: Displays the transcript of the course content.
+- **ResumeDialogComponent**: Presents a dialog for resuming the course.
+- **PageHostComponent**: Acts as a host for displaying individual course pages.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.

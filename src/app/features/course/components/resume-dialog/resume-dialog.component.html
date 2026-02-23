@@ -1,0 +1,12 @@
+@if (visible) {
+  <div class="resume-overlay" role="dialog" aria-modal="true">
+    <div class="resume-dialog">
+      <h2>Resume Course</h2>
+      <p>You have saved progress. Continue where you left off?</p>
+      <div class="dialog-actions">
+        <button type="button" (click)="resumeCourse()">Resume</button>
+        <button type="button" class="ghost" (click)="restartCourse()">Restart</button>
+      </div>
+    </div>
+  </div>
+}

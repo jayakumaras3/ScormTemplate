@@ -1,0 +1,28 @@
+<section class="menu-drawer">
+  <header class="drawer-header">
+    <h2>Course Menu</h2>
+    <button type="button" class="close-btn" (click)="closeMenu.emit()">✕</button>
+  </header>
+
+  <div class="drawer-list">
+    @for (section of sectionedPages; track section.title) {
+      <section class="group">
+        <h3>{{ section.title }}</h3>
+
+        <ul>
+          @for (entry of section.items; track entry.page.name) {
+            <li>
+              <button
+                type="button"
+                [ngClass]="{ active: entry.index === currentPageIndex, visited: isVisited(entry.page.name) }"
+                (click)="pageSelected.emit(entry.index)"
+              >
+                {{ entry.page.title }}
+              </button>
+            </li>
+          }
+        </ul>
+      </section>
+    }
+  </div>
+</section>

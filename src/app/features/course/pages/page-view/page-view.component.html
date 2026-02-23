@@ -1,0 +1,16 @@
+<section class="page" *ngIf="page">
+  <header>
+    <h2>{{ page.header || page.title }}</h2>
+  </header>
+
+  @if (contentType === 'captivate' || contentType === 'iframe') {
+    <iframe [src]="safeResourceUrl" title="Course content"></iframe>
+  } @else if (contentType === 'video') {
+    <video controls [src]="contentPath"></video>
+  } @else {
+    <div class="fallback">
+      <p>Content type is not directly renderable.</p>
+      <a [href]="contentPath" target="_blank" rel="noopener noreferrer">Open content</a>
+    </div>
+  }
+</section>

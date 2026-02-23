@@ -1,0 +1,57 @@
+/* Styles for the resume dialog component */
+
+.resume-overlay {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(15, 23, 42, 0.4);
+    z-index: 20;
+}
+
+.resume-dialog {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    width: min(460px, calc(100% - 2rem));
+    border: 1px solid #dbe1ea;
+}
+
+.dialog-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+button {
+    border: 0;
+    border-radius: 6px;
+    padding: 0.5rem 0.85rem;
+    background: #1d4ed8;
+    color: #fff;
+    cursor: pointer;
+}
+
+button.ghost {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+.resume-dialog-header {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.resume-dialog-body {
+    margin-bottom: 20px;
+}
+
+.resume-dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.resume-dialog-button {
+    margin-left: 10px;
+}
