@@ -24,7 +24,21 @@ export class PageViewComponent {
     return this.page?.settings.content?.[0]?.path ?? '';
   }
 
+  get resolvedContentPath(): string {
+    const path = this.contentPath.trim();
+
+    if (!path) {
+      return '';
+    }
+
+    if (/^(https?:)?\/\//i.test(path) || path.startsWith('data:') || path.startsWith('/')) {
+      return path;
+    }
+
+    return `/${path}`;
+  }
+
   get safeResourceUrl(): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.contentPath);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.resolvedContentPath);
   }
 }

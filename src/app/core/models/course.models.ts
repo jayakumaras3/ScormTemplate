@@ -3,8 +3,14 @@ export interface TemplateConfig {
   AudioVersionEnable?: boolean;
   Master?: boolean;
   Menutitle?: string;
+  MenuName?: string;
+  NextTitle?: string;
+  Prevtitle?: string;
   TranscriptName?: string;
+  ResumeTitle?: string;
   ResumeHeader?: string;
+  ResumeYES?: string;
+  ResumeNO?: string;
   [key: string]: unknown;
 }
 

@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { combineLatest, map } from 'rxjs';
 import { CourseStateService } from '@core/services/course-state.service';
@@ -13,7 +13,6 @@ import { PageViewComponent } from '../../pages/page-view/page-view.component';
   selector: 'app-course-shell',
   standalone: true,
   imports: [
-    NgIf,
     AsyncPipe,
     LoadingSpinnerComponent,
     SidebarMenuComponent,
@@ -48,7 +47,19 @@ export class CourseShellComponent {
     map((state) => ({
       ...state,
       canGoBack: state.currentPageIndex > 0,
-      visitedPageIds: state.progress?.visitedPageIds ?? []
+      visitedPageIds: state.progress?.visitedPageIds ?? [],
+      currentPageTitle: state.page?.header || state.page?.title || state.currentSectionName,
+      currentTranscript: state.page?.transcript ?? '',
+      courseName: String(state.config?.template?.CourseName || ''),
+      transcriptTitle: String(state.config?.template?.TranscriptName || 'Transcript'),
+      menuTitle: String(state.config?.template?.Menutitle || state.config?.template?.MenuName || 'Menu'),
+      nextLabel: String(state.config?.template?.NextTitle || ' Next'),
+      prevLabel: String(state.config?.template?.Prevtitle || 'Prev'),
+      transcriptLabel: `📄 ${String(state.config?.template?.TranscriptName || 'Transcript')}`,
+      resumeTitle: String(state.config?.template?.ResumeTitle || 'Resume'),
+      resumeMessage: String(state.config?.template?.ResumeHeader || ''),
+      resumeYesLabel: String(state.config?.template?.ResumeYES || 'Yes'),
+      resumeNoLabel: String(state.config?.template?.ResumeNO || 'No')
     }))
   );
 
@@ -75,6 +86,10 @@ export class CourseShellComponent {
 
   toggleMenu(): void {
     this.courseStateService.toggleMenu();
+  }
+
+  closeMenu(): void {
+    this.courseStateService.setMenuOpen(false);
   }
 
   toggleAudio(): void {

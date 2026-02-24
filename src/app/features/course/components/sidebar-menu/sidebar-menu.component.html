@@ -1,28 +1,26 @@
 <section class="menu-drawer">
+  <div class="drawer-logo">
+    <img src="assets/logo.svg" alt="Logo" class="logo-img" />
+  </div>
+
   <header class="drawer-header">
-    <h2>Course Menu</h2>
+    <h2>{{ menuTitle }}</h2>
     <button type="button" class="close-btn" (click)="closeMenu.emit()">✕</button>
   </header>
 
   <div class="drawer-list">
-    @for (section of sectionedPages; track section.title) {
-      <section class="group">
-        <h3>{{ section.title }}</h3>
-
-        <ul>
-          @for (entry of section.items; track entry.page.name) {
-            <li>
-              <button
-                type="button"
-                [ngClass]="{ active: entry.index === currentPageIndex, visited: isVisited(entry.page.name) }"
-                (click)="pageSelected.emit(entry.index)"
-              >
-                {{ entry.page.title }}
-              </button>
-            </li>
-          }
-        </ul>
-      </section>
-    }
+    <ul>
+      @for (entry of pages; track entry.name; let i = $index) {
+        <li>
+          <button
+            type="button"
+            [ngClass]="{ active: i === currentPageIndex, visited: isVisited(entry.name) }"
+            (click)="pageSelected.emit(i)"
+          >
+            {{ entry.title }}
+          </button>
+        </li>
+      }
+    </ul>
   </div>
 </section>

@@ -7,54 +7,64 @@
       <p>{{ vm.error }}</p>
     </section>
   } @else {
-    <section class="course-shell">
-      <header class="top-bar">
+    <section class="app-container" [class.menu-open]="vm.menuOpen">
+      <header class="app-header top-bar">
         <div class="top-left">
           <button class="icon-btn" type="button" (click)="toggleMenu()">☰</button>
-          <span class="crumb">{{ vm.currentSectionName }}</span>
-        </div>
-        <h1>{{ vm.config?.template?.CourseName }}</h1>
-        <div class="top-right">
-          <span class="badge">⭐ {{ vm.completion }}</span>
-          <span class="lang">🌐 EN</span>
+          <h1 class="crumb">{{ vm.currentPageTitle }}</h1>
         </div>
       </header>
 
-      <div class="course-stage">
-        @if (vm.menuOpen) {
+      <div class="app-body">
+        <div class="menu-backdrop" [class.open]="vm.menuOpen" (click)="closeMenu()"></div>
+
+        <aside class="side-menu" [class.open]="vm.menuOpen" [attr.aria-hidden]="!vm.menuOpen">
           <app-sidebar-menu
             [pages]="vm.pages"
             [currentPageIndex]="vm.currentPageIndex"
             [visitedPageIds]="vm.visitedPageIds"
+            [menuTitle]="vm.menuTitle"
             (pageSelected)="selectMenuPage($event)"
-            (closeMenu)="toggleMenu()"
+            (closeMenu)="closeMenu()"
           />
-        } @else {
+        </aside>
+
+        <main class="app-content">
           <app-page-view [page]="vm.page" />
-        }
+        </main>
       </div>
 
-      <app-navigation-bar
-        [canGoBack]="vm.canGoBack"
-        [canGoNext]="vm.canAdvance"
-        [completionPercentage]="vm.completion"
-        [currentPage]="vm.currentPageIndex + 1"
-        [totalPages]="vm.pages.length"
-        (previous)="goBack()"
-        (next)="goNext()"
-        (openMenu)="toggleMenu()"
-        (openTranscript)="toggleTranscript()"
-        (toggleAudio)="toggleAudio()"
-      />
+      <footer class="app-footer">
+        <app-navigation-bar
+          [canGoBack]="vm.canGoBack"
+          [canGoNext]="vm.canAdvance"
+          [completionPercentage]="vm.completion"
+          [currentPage]="vm.currentPageIndex + 1"
+          [totalPages]="vm.pages.length"
+          [nextLabel]="vm.nextLabel"
+          [prevLabel]="vm.prevLabel"
+          [transcriptLabel]="vm.transcriptLabel"
+          (previous)="goBack()"
+          (next)="goNext()"
+          (openMenu)="toggleMenu()"
+          (openTranscript)="toggleTranscript()"
+          (toggleAudio)="toggleAudio()"
+        />
+      </footer>
 
       <app-transcript-panel
         [visible]="vm.transcriptOpen"
-        [entries]="vm.transcriptEntries"
+        [transcriptContent]="vm.currentTranscript"
+        [transcriptTitle]="vm.transcriptTitle"
         (close)="toggleTranscript()"
       />
 
       <app-resume-dialog
         [visible]="vm.showResumeDialog"
+        [resumeTitle]="vm.resumeTitle"
+        [resumeMessage]="vm.resumeMessage"
+        [resumeButtonLabel]="vm.resumeYesLabel"
+        [restartButtonLabel]="vm.resumeNoLabel"
         (resume)="resumeCourse()"
         (restart)="restartCourse()"
       />

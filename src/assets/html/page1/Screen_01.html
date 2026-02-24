@@ -14,6 +14,14 @@
 <title>Screen_01</title>
 <!-- write your code here -->
 <style>
+	html, body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		background: #000;
+	}
+
   #animation_container {
 	position:absolute;
 	margin:auto;
@@ -22,8 +30,20 @@
   }
 </style>
 <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script>
+if (!window.createjs) {
+	document.write('<script src="createjs.min.js"><\\/script>');
+}
+</script>
 <script src="Screen_01.js"></script>
 <script>
+if (typeof window.parent?.beginButCall !== 'function') {
+	window.parent.beginButCall = function () {};
+}
+if (typeof window.parent?.audioButCall !== 'function') {
+	window.parent.audioButCall = function () {};
+}
+
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
 function init() {
 	canvas = document.getElementById("canvas");

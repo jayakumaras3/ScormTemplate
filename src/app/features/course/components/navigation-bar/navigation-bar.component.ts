@@ -13,6 +13,9 @@ export class NavigationBarComponent {
   @Input({ required: true }) completionPercentage = 0;
   @Input({ required: true }) currentPage = 1;
   @Input({ required: true }) totalPages = 1;
+  @Input() nextLabel = 'Next ›';
+  @Input() prevLabel = '‹ Back';
+  @Input() transcriptLabel = '📄 Transcript';
 
   @Output() previous = new EventEmitter<void>();
   @Output() next = new EventEmitter<void>();

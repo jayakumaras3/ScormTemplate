@@ -1,26 +1,16 @@
 @if (visible) {
-  <section class="panel">
-    <header>
-      <h3>Transcript</h3>
-      <button type="button" (click)="close.emit()">Close</button>
-    </header>
+  <div class="overlay" role="dialog" aria-modal="true" (click)="close.emit()">
+    <div class="panel" (click)="$event.stopPropagation()">
+      <header>
+        <h2>{{ transcriptTitle }}</h2>
+        <button type="button" class="close-btn" (click)="close.emit()" aria-label="Close">✕</button>
+      </header>
 
-    @if (entries.length) {
-      <ul>
-        @for (entry of entries; track entry.pageId) {
-          <li>
-            <h4>
-              {{ entry.title }}
-              @if (entry.completed) {
-                <span class="status">Completed</span>
-              }
-            </h4>
-            <div [innerHTML]="entry.transcript"></div>
-          </li>
-        }
-      </ul>
-    } @else {
-      <p>No visited pages yet.</p>
-    }
-  </section>
+      @if (transcriptContent) {
+        <div class="content" [innerHTML]="transcriptContent"></div>
+      } @else {
+        <p class="empty">No transcript available for this page.</p>
+      }
+    </div>
+  </div>
 }

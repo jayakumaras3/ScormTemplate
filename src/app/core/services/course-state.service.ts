@@ -12,7 +12,7 @@ export class CourseStateService {
   private readonly currentPageIndexSubject = new BehaviorSubject<number>(0);
   private readonly moduleIdSubject = new BehaviorSubject<number>(0);
   private readonly audioEnabledSubject = new BehaviorSubject<boolean>(true);
-  private readonly menuOpenSubject = new BehaviorSubject<boolean>(true);
+  private readonly menuOpenSubject = new BehaviorSubject<boolean>(false);
   private readonly transcriptOpenSubject = new BehaviorSubject<boolean>(false);
   private readonly loadingSubject = new BehaviorSubject<boolean>(true);
   private readonly errorSubject = new BehaviorSubject<string | null>(null);
@@ -34,10 +34,17 @@ export class CourseStateService {
   readonly currentPage$ = combineLatest([this.pages$, this.currentPageIndex$]).pipe(
     map(([pages, index]) => pages[index] ?? null)
   );
-  readonly currentSectionName$ = this.moduleId$.pipe(
-    map((moduleId) => {
-      const sectionNames = ['INTRODUCTION', 'FOUNDATIONS', 'ADVANCED', 'PRACTICE', 'ASSESSMENT'];
-      return sectionNames[moduleId] ?? `MODULE ${moduleId + 1}`;
+  readonly currentSectionName$ = combineLatest([this.moduleId$, this.pages$]).pipe(
+    map(([moduleId, pages]) => {
+      // Try to get section name from pages with matching module
+      const pagesInModule = pages.filter((p: TocPage) => (p.settings.module ?? 0) === moduleId);
+      if (pagesInModule.length > 0) {
+        // Get unique section names from pages in this module by their group
+        const firstPage = pagesInModule[0];
+        // If we have multiple pages, derive from title pattern or use page header
+        return firstPage.header || `Module ${moduleId + 1}`;
+      }
+      return `Module ${moduleId + 1}`;
     })
   );
   readonly completionPercentage$ = this.progress$.pipe(
@@ -58,6 +65,8 @@ export class CourseStateService {
   initialize(config: CourseConfig): void {
     this.configSubject.next(config);
     this.audioEnabledSubject.next(Boolean(config.template.AudioVersionEnable));
+    this.menuOpenSubject.next(false);
+    this.showResumeDialogSubject.next(false);
     this.loadingSubject.next(false);
     this.errorSubject.next(null);
     this.scormService.initialize();
@@ -67,7 +76,6 @@ export class CourseStateService {
       this.progressSubject.next(savedProgress);
       this.currentPageIndexSubject.next(savedProgress.currentPageIndex);
       this.moduleIdSubject.next(savedProgress.moduleId);
-      this.showResumeDialogSubject.next(true);
     } else {
       const initialProgress = this.createInitialProgress(config.template.CourseName);
       this.progressSubject.next(initialProgress);

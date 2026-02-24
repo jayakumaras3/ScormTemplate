@@ -9,6 +9,11 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 })
 export class ResumeDialogComponent {
   @Input({ required: true }) visible = false;
+  @Input() resumeTitle = 'Resume Course';
+  @Input() resumeMessage = 'You have saved progress. Continue where you left off?';
+  @Input() resumeButtonLabel = 'Resume';
+  @Input() restartButtonLabel = 'Restart';
+  
   @Output() resume = new EventEmitter<void>();
   @Output() restart = new EventEmitter<void>();
 

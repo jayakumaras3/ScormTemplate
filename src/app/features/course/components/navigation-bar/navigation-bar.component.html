@@ -1,12 +1,11 @@
 <footer class="nav-footer">
   <div class="left-controls">
-    <button type="button" class="ghost" (click)="openTranscript.emit()">📄 Transcript</button>
-    <button type="button" class="ghost" (click)="toggleAudio.emit()">🔊</button>
+    <button type="button" class="ghost" (click)="openTranscript.emit()">{{ transcriptLabel }}</button>
   </div>
 
   <div class="right-controls">
-    <button type="button" class="ghost" (click)="previous.emit()" [disabled]="!canGoBack">‹ Back</button>
+    <button type="button" class="ghost" (click)="previous.emit()" [disabled]="!canGoBack">{{ prevLabel }}</button>
     <span class="page-indicator">Page {{ currentPage }} of {{ totalPages }}</span>
-    <button type="button" (click)="next.emit()" [disabled]="!canGoNext">Next ›</button>
+    <button type="button" (click)="next.emit()" [disabled]="!canGoNext">{{ nextLabel }}</button>
   </div>
 </footer>

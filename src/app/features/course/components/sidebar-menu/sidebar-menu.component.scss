@@ -1,10 +1,24 @@
 .menu-drawer {
-  width: 325px;
-  height: calc(100vh - 70px - 74px);
+  width: 100%;
+  height: 100%;
   background: #ffffff;
-  border-right: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
+}
+
+.drawer-logo {
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto;
+  max-width: 100%;
 }
 
 .drawer-header {
@@ -44,8 +58,53 @@
   padding: 1.5rem 1.5rem 2rem;
 }
 
+.drawer-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.drawer-list li {
+  margin: 0;
+  padding: 0;
+}
+
+.drawer-list button {
+  width: 100%;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+  color: #6b7280;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover:not(.active) {
+    background: #f9fafb;
+    color: #374151;
+  }
+}
+
+.drawer-list button.active {
+  background: #dbeafe;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.drawer-list button.visited:not(.active) {
+  color: #374151;
+}
+
 .group {
   margin-bottom: 1.5rem;
+  border: none;
+  outline: none;
 
   &:last-child {
     margin-bottom: 0;
@@ -54,10 +113,25 @@
 
 .group h3 {
   margin: 0 0 0.75rem;
+  padding: 0;
   color: #1f2937;
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.05em;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  background: none;
+  box-shadow: none;
+  position: relative;
+}
+
+.group h3::before,
+.group h3::after {
+  content: none !important;
+  display: none !important;
+  border: none !important;
+  outline: none !important;
 }
 
 .group ul {
