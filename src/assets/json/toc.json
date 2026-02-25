@@ -4,7 +4,7 @@
       "name": "96",
       "title": "Welcome",
       "header": "Welcome",
-      "transcript": "<p>Welcome &nbsp Welcome Welcome</p>",
+      "transcript": "<p>Congratulations! You have completed the course: Boosting Efficiency With Microsoft Copilot.</p>\r\n\r\n<p>In this course, you have learned that:</p>\r\n\r\n<ul>\r\n\t<li>Gen AI relies on Large Language Models (or LLMs) and foundation models. These are neural networks trained on vast amounts of data and can predict and generate content word by word.</li>\r\n\t<li>You learned that Microsoft 365 Copilot is integrated directly into Microsoft 365 apps like Word, Excel, PowerPoint, Outlook, and Teams, turning these tools into powerhouses of creativity and productivity.</li>\r\n\t<li>You also learned the quality of Copilot&rsquo;s output depends heavily on the clarity and structure of it&rsquo;s prompts.</li>\r\n\t<li>And finally, you learned that maintaining data privacy is paramount. Ensure Copilot is integrated into secure, organization-approved environments. Always review and verify AI outputs to ensure they align with your intentions and ethical standards.</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n",
       "settings": {
         "sidebar": true,
         "header": true,

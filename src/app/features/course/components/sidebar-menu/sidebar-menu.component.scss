@@ -7,18 +7,20 @@
 }
 
 .drawer-logo {
-  padding: 1.5rem 1.5rem 1rem;
+  padding: 0.5rem 1rem;
   border-bottom: 1px solid #e5e7eb;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: #fff;
+  line-height: 0;
 }
 
 .logo-img {
-  height: 60px;
-  width: auto;
-  max-width: 100%;
+  width: 220px;
+  height: auto;
+  max-width: calc(100% - 0.25rem);
+  display: block;
 }
 
 .drawer-header {
